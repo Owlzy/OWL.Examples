@@ -1,5 +1,9 @@
 # OWL.Examples
-Example usage for the MonoGame scene graph - OWL.
+Example usage for the MonoGame scene graph - see [OWL](https://github.com/Owlzy/OWL).
+
+## Basic Usage
+
+Basic scene with a white sprite tinted red.
 
 ```csharp
 using OWL.Graph;
