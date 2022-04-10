@@ -1,8 +1,4 @@
-# OWL.Examples
-Example usage for the MonoGame scene graph - OWL.
-
-```csharp
-using OWL.Graph;
+﻿using OWL.Graph;
 
 namespace Examples.Basic.Scenes
 {
@@ -29,4 +25,3 @@ namespace Examples.Basic.Scenes
         }
     }
 }
-```
