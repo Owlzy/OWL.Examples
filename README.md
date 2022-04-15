@@ -71,10 +71,7 @@ namespace Examples.SceneStack.Scenes
             motes = new Motes(20);
             AddChild(motes);
 
-            Delay(this, 2000f, () =>
-            {
-                OnPause?.Invoke();
-            });
+            Delay(this, 2000f, () => OnPause?.Invoke());
         }
 
         public override void Update(float deltaTime)
