@@ -30,6 +30,23 @@ namespace Examples.SceneStack
                 var mote = moteList[i];
                 mote.Position += mote.Velocity * deltaTime;
                 mote.Rotation += mote.Torque * deltaTime;
+
+                if (mote.X <= -mote.Width / 2)
+                {
+                    mote.X = Game1.Device.Viewport.Width;
+                }
+                if (mote.X >= Game1.Device.Viewport.Width + mote.Width / 2)
+                {
+                    mote.X = 0f;
+                }
+                if (mote.Y <= -mote.Height / 2)
+                {
+                    mote.Y = Game1.Device.Viewport.Height;
+                }
+                if (mote.Y >= Game1.Device.Viewport.Height + mote.Height / 2)
+                {
+                    mote.Y = 0f;
+                }
             }
         }
     }

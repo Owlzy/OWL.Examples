@@ -17,17 +17,13 @@ namespace Examples.SceneStack.Scenes
             AddChild(bg);
 
             motes = new Motes(20);
-            motes.SetPosition(100f, 100f);
             AddChild(motes);
 
-            Delay(this, 2000f, () =>
-            {
-                OnPause?.Invoke();
-            });
+            Delay(this, 2000f, () => OnPause?.Invoke());
         }
 
         public override void Update(float deltaTime)
-        { 
+        {
             base.Update(deltaTime);
             motes.Update(deltaTime);
         }
