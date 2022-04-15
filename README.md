@@ -43,7 +43,7 @@ namespace Examples.Basic.Scenes
 
 Output
 
-![alt text](https://cdn.discordapp.com/attachments/483046185997697037/962794518002933851/RedSpin.gif)
+![alt text](https://cdn.discordapp.com/attachments/483046185997697037/962803376100347914/RedOrbit.gif)
 
 ## Scene Stack
 
