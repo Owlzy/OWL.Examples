@@ -43,7 +43,7 @@ namespace Examples.Basic.Scenes
 
 Output
 
-![alt text](https://cdn.discordapp.com/attachments/483046185997697037/962803376100347914/RedOrbit.gif)
+<img src="https://cdn.discordapp.com/attachments/483046185997697037/962803376100347914/RedOrbit.gif" alt="drawing" width="600"/>
 
 ## Scene Stack
 
@@ -85,4 +85,4 @@ namespace Examples.SceneStack.Scenes
 
 Output
 
-![alt text](https://cdn.discordapp.com/attachments/483046185997697037/964337178350071808/scenestack.gif)
+<img src="https://cdn.discordapp.com/attachments/483046185997697037/964337178350071808/scenestack.gif" alt="drawing" width="600"/>
