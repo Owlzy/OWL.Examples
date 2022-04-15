@@ -1,6 +1,6 @@
 # OWL.Examples
 
-A collection of samples showing potential ways to implement common game patterns using a scene graph in MonoGame
+A collection of samples showing potential ways to implement common game patterns using a scene graph in MonoGame.
 
 See [OWL](https://github.com/Owlzy/OWL).
 
