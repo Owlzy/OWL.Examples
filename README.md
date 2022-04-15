@@ -4,6 +4,8 @@ A collection of samples showing potential ways to implement common game patterns
 
 See [OWL](https://github.com/Owlzy/OWL).
 
+<br/>
+
 ## Basic Usage
 
 A basic scene with a white sprite tinted red. We offset the sprite relative to the container to create an orbit like effect.
@@ -47,6 +49,8 @@ namespace Examples.Basic.Scenes
 Output
 
 <img src="https://cdn.discordapp.com/attachments/483046185997697037/962803376100347914/RedOrbit.gif" alt="drawing" width="600"/>
+
+<br/>
 
 ## Scene Stack
 
