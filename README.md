@@ -1,11 +1,12 @@
 # OWL.Examples
-Example scene graph usage - see [OWL](https://github.com/Owlzy/OWL).
 
 A collection of samples showing potential ways to implement common game patterns using a scene graph in MonoGame
 
+See [OWL](https://github.com/Owlzy/OWL).
+
 ## Basic Usage
 
-Basic scene with a white sprite tinted red. We offset the sprite relative to the container to create an orbit like effect.
+A basic scene with a white sprite tinted red. We offset the sprite relative to the container to create an orbit like effect.
 
 ```csharp
 using OWL.Graph;
@@ -49,7 +50,7 @@ Output
 
 ## Scene Stack
 
-Trigger a pause scene using a scene stack. Scenes in background pause because they are not at the top of the stack.
+Trigger a pause scene using a scene stack. Scenes in the background pause because they are not at the top of the stack.
 
 ```csharp
 using OWL.Graph;
