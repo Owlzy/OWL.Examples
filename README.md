@@ -1,6 +1,8 @@
 # OWL.Examples
 Example scene graph usage - see [OWL](https://github.com/Owlzy/OWL).
 
+A collection of samples showing potential ways to implement common game patterns using a scene graph in MonoGame
+
 ## Basic Usage
 
 Basic scene with a white sprite tinted red. We offset the sprite relative to the container to create an orbit like effect.
