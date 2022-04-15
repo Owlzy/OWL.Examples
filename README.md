@@ -46,7 +46,7 @@ namespace Examples.Basic.Scenes
 
 ```
 
-Output
+<br/>
 
 <img src="https://cdn.discordapp.com/attachments/483046185997697037/962803376100347914/RedOrbit.gif" alt="drawing" width="600"/>
 
@@ -90,6 +90,6 @@ namespace Examples.SceneStack.Scenes
 }
 ```
 
-Output
+<br/>
 
 <img src="https://cdn.discordapp.com/attachments/483046185997697037/964337178350071808/scenestack.gif" alt="drawing" width="600"/>
