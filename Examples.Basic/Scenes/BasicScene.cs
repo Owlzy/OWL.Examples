@@ -1,4 +1,5 @@
-﻿using OWL.Graph;
+﻿using Microsoft.Xna.Framework;
+using OWL.Graph;
 
 namespace Examples.Basic.Scenes
 {
