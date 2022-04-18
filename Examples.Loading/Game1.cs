@@ -1,105 +1,57 @@
-# OWL.Examples
-
-A collection of samples showing potential ways to implement common game patterns using a scene graph in MonoGame.
-
-See [OWL](https://github.com/Owlzy/OWL)
-
-<br/>
-
-## Basic Usage
-
-A basic scene with a white sprite tinted red. We offset the sprite relative to the container to create an orbit like effect.
-
-```csharp
+﻿using Examples.Loading.Scenes;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using OWL.Graph;
+using OWL.Rendering;
+using OWL.Texture;
+using System;
+using System.Collections.Generic;
 
-namespace Examples.Basic.Scenes
+namespace Examples.Loading
 {
-    class BasicScene : Scene
+    public class Game1 : Game
     {
+        public static GraphicsDevice Device;
+        public static TextureRegion2D White;
+        public static Assets Assets;
 
-        Sprite sprite;
-        Container container;
+        public Action OnLoadingComplete;
 
-        public BasicScene()
+        private readonly Container _stage = new Container();
+
+        private GraphicsDeviceManager _graphics;
+        private SpriteBatch _spriteBatch;
+        private Renderer _renderer;
+        private SceneStack _stack;
+        private SceneManager _sceneManager;
+        private LoadingScene _loadingScene;
+
+        private bool _loading = false;
+        private int _loadTotal = 0;
+
+        private List<ManifestItem> _manifest;
+
+        public Game1()
         {
-            container = new Container();
-            container.SetPosition(400, 250);
-            AddChild(container);
-
-            sprite = new Sprite(Game1.White);
-            sprite.Width = 40;
-            sprite.Height = 40;
-            sprite.SetPosition(100, 0);
-            sprite.SetAnchor(0.5f);
-            sprite.Tint = Microsoft.Xna.Framework.Color.Red;
-            container.AddChild(sprite);
+            _graphics = new GraphicsDeviceManager(this);
+            Content.RootDirectory = "Content";
+            IsMouseVisible = true;
         }
 
-        public override void Update(float deltaTime)
+        protected override void Initialize()
         {
-            var speed = 3f;
-            container.Rotation += speed * deltaTime;
-        }
-    }
-}
+            Device = _graphics.GraphicsDevice;
+            White = new TextureRegion2D(new Texture2D(_graphics.GraphicsDevice, 4, 4)
+                .FillTexture(_graphics.GraphicsDevice, 4, 4, pixel => Color.White));
 
-```
+            // TODO: Add your initialization logic here
+            _stack = new SceneStack(_stage);
+            _sceneManager = new SceneManager(_stack);
 
-<br/>
-
-<img src="https://cdn.discordapp.com/attachments/483046185997697037/962803376100347914/RedOrbit.gif" alt="drawing" width="600"/>
-
-<br/>
-
-## Scene Stack
-
-Trigger a pause scene using a scene stack. Scenes in the background pause because they are not at the top of the stack.
-
-```csharp
-using OWL.Graph;
-
-namespace Examples.SceneStack.Scenes
-{
-    class MainScene : Scene
-    {
-
-        Sprite bg;
-        Motes motes;
-
-        public MainScene()
-        {
-            bg = new Sprite(Game1.White);
-            bg.Width = Game1.Device.Viewport.Width;
-            bg.Height = Game1.Device.Viewport.Height;
-            bg.Tint = Microsoft.Xna.Framework.Color.BlanchedAlmond;
-            AddChild(bg);
-
-            motes = new Motes(20);
-            AddChild(motes);
-
-            Delay(this, 2000f, () => OnPause?.Invoke());
+            base.Initialize();
         }
 
-        public override void Update(float deltaTime)
-        { 
-            base.Update(deltaTime);
-            motes.Update(deltaTime);
-        }
-    }
-}
-```
-<br/>
-
-<img src="https://cdn.discordapp.com/attachments/483046185997697037/964337178350071808/scenestack.gif" alt="drawing" width="600"/>
-
-<br/>
-
-## Loading Scene
-
-Load some frames for an animated sprite and display the loading progress.
-
-```csharp
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -184,8 +136,35 @@ Load some frames for an animated sprite and display the loading progress.
 
             base.Update(gameTime);
         }
-```
 
-<br/>
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.CornflowerBlue);
 
-<img src="https://cdn.discordapp.com/attachments/483046185997697037/965742301836083302/loading.gif" alt="drawing" width="600"/>
+            // TODO: Add your drawing code here
+            _renderer.Begin();
+            _renderer.Render(_stage);
+            _renderer.End();
+
+            base.Draw(gameTime);
+        }
+    }
+
+    public struct ManifestItem
+    {
+        public string uri;
+        public string name;
+
+        public ManifestItem(string uri)
+        {
+            name = "";
+            this.uri = uri;
+        }
+
+        public ManifestItem(string name, string uri)
+        {
+            this.name = name;
+            this.uri = uri;
+        }
+    }
+}

@@ -72,9 +72,9 @@ namespace Examples.SceneStack
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            _renderer.BeginRender();
+            _renderer.Begin();
             _renderer.Render(_stage);
-            _renderer.EndRender();
+            _renderer.End();
 
             base.Draw(gameTime);
         }
