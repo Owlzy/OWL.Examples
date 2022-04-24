@@ -16,7 +16,7 @@ namespace Examples.Loading
         public static TextureRegion2D White;
         public static Assets Assets;
 
-        public Action OnLoadingComplete;
+        protected Action OnLoadingComplete;
 
         private readonly Container _stage = new Container();
 
@@ -30,7 +30,7 @@ namespace Examples.Loading
         private bool _loading = false;
         private int _loadTotal = 0;
 
-        private List<ManifestItem> _manifest;
+        private Queue<ManifestItem> _manifest;
 
         public Game1()
         {
@@ -85,10 +85,10 @@ namespace Examples.Loading
             };
 
             // Create asset list
-            _manifest = new List<ManifestItem>();
+            _manifest = new Queue<ManifestItem>();
             for (var i = 0; i <= 7; i++)
             {
-                _manifest.Add(new ManifestItem
+                _manifest.Enqueue(new ManifestItem
                 {
                     uri = @"textures/ammo_crate_00" + i,
                     name = @"ammo_crate_00" + i
@@ -116,8 +116,7 @@ namespace Examples.Loading
             if (_loading)
             {
                 // Pop asset
-                var asset = _manifest[_manifest.Count - 1];
-                _manifest.RemoveAt(_manifest.Count - 1);
+                var asset = _manifest.Dequeue();
 
                 // Load file
                 Assets.Load(asset.uri, out Texture2D _);
